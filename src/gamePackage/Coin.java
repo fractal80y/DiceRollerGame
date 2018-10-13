@@ -10,16 +10,21 @@ public class Coin {
 //	 flipIt();
 //	}
 	
+	public static void setCoinFace(boolean x) {
+		
+		Coin.state = (x == true) ? CoinFace.HEADS : CoinFace.TAILS;  
+	}
 	
-	
-	public final static CoinFace flipIt() {
-		  x =(byte) Math.round(Math.random());
-		  
-		  return  (x == 1) ? CoinFace.HEADS : CoinFace.TAILS;   
+	public final static void flipIt() {
+		  Coin.x =(byte) Math.round(Math.random());
+		  Coin.setCoinFace((Coin.x == 1 ? true : false));
+		  System.out.println(Coin.getCoinFace());
 	}
 	
 	
-	
+	public static CoinFace getCoinFace() {
+		return Coin.state;
+	}
 	
 	
 	public static void main(String[] args) {
@@ -28,8 +33,9 @@ public class Coin {
 		
 		while(x < 5) {
 			
-			System.out.println(Coin.flipIt());
+			Coin.flipIt();
 			System.out.println(Coin.x);
+			System.out.println(Coin.getCoinFace()); // check after flip coin that it is correct state.
 			x++;
 		}
 		
