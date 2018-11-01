@@ -18,6 +18,7 @@ import java.awt.Insets;
 public class GameWindow {
 
 	private JFrame jf;
+	private JComboBox<Integer> betAmt;
 
 	
 
@@ -72,7 +73,7 @@ public class GameWindow {
 		lblNewLabel_3.setBounds(119, 3, 113, 14);
 		infoPan.add(lblNewLabel_3);
 		
-		JComboBox betAmt = new JComboBox();
+		betAmt = new JComboBox<Integer>();
 		betAmt.setBounds(232, 0, 49, 20);
 		betAmt.setModel(new DefaultComboBoxModel(new String[] {"50", "100", "200", "500", "All In"}));
 		infoPan.add(betAmt);
@@ -108,5 +109,8 @@ public class GameWindow {
 		JLabel p2Total = new JLabel("30");
 		p2Total.setBounds(254, 74, 46, 14);
 		infoPan.add(p2Total);
+	}
+	public int getBet() {
+		return Integer.parseInt(this.betAmt.getSelectedItem().toString());
 	}
 }
