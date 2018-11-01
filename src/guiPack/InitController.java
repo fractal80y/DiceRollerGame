@@ -31,11 +31,7 @@ public class InitController {
 		iM.setRollNum(Integer.parseInt(fV.getRollAmt().getSelectedItem().toString()));
 		iM.setRoundNum(Integer.parseInt(fV.getRoundAmt().getSelectedItem().toString()));
 		iM.setWallet(Integer.parseInt(fV.getWalletAmt().getSelectedItem().toString()));
-		
-		System.out.print(Integer.parseInt(fV.getWalletAmt().getSelectedItem().toString()));
-		
 		fV.getFrame().dispose();
-	
 		gM = new GameFrame();
 		
 		
