@@ -3,7 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import WindowBuilder.*;
 import WBModel.*;
-import gameWIndow.*;
+import gameWindow.*;
 public class ControlInit {
 	private InitWin initWin;
 	private WBController.ControlGame gCon;
@@ -20,7 +20,9 @@ public class ControlInit {
 	public void actionControl () {
 		aListen = new ActionListener(){
 		public void actionPerformed(ActionEvent actionEvent) {                  
-			launch();
+			if (actionEvent.getSource() == initWin.getLaunch()) {
+				launch();
+			}
         }
 		};
 		initWin.getLaunch().addActionListener(aListen);
@@ -37,7 +39,7 @@ public class ControlInit {
 		System.out.print(initWin.getWallet());
 		
 		
-		gCon = new WBController.ControlGame(new Game(initWin.getN1(),initWin.getN2(),initWin.getRolls(),initWin.getRounds(),initWin.getWallet()));
+		gCon = new WBController.ControlGame(initWin.getN1(),initWin.getN2(),initWin.getRolls(),initWin.getRounds(),initWin.getWallet());
 		initWin.getJF().dispose();
 	}
 }

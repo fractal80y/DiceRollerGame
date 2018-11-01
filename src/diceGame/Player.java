@@ -34,6 +34,7 @@ public class Player {
 	
 	public void clearRollList () {
 		this.rollsList.clear();
+		
 	}
 	public ArrayList<int[]> getRollsList() {
 		return this.rollsList;

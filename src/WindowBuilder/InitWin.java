@@ -22,9 +22,9 @@ public class InitWin {
 	private JTextField name1;
 	private JTextField name2;
 	private JButton launchBtn;
-	private JComboBox walletAmt;
-	private JComboBox diceAmt;
-	private JComboBox rndAmt;
+	private JComboBox<Integer> walletAmt;
+	private JComboBox<Integer> diceAmt;
+	private JComboBox<Integer> rndAmt;
 	public InitWin() {
 		initialize();
 		jf.setVisible(true);
@@ -71,21 +71,21 @@ public class InitWin {
 		JLabel walletLbl = new JLabel("Select Wallet Size");
 		setP.add(walletLbl);
 		
-		JComboBox walletAmt = new JComboBox();
+		walletAmt = new JComboBox<Integer>();
 		walletAmt.setModel(new DefaultComboBoxModel(new String[] {"500", "1000", "2000"}));
 		setP.add(walletAmt);
 		
 		JLabel diceLbl = new JLabel("Number of dice to roll");
 		setP.add(diceLbl);
 		
-		JComboBox diceAmt = new JComboBox();
+		diceAmt = new JComboBox<Integer>();
 		diceAmt.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5"}));
 		setP.add(diceAmt);
 		
 		JLabel roundLbl = new JLabel("Number of rounds");
 		setP.add(roundLbl);
 		
-		JComboBox rndAmt = new JComboBox();
+		rndAmt = new JComboBox<Integer>();
 		rndAmt.setModel(new DefaultComboBoxModel(new String[] {"1", "3", "5", "7"}));
 		setP.add(rndAmt);
 	}
@@ -102,12 +102,12 @@ public class InitWin {
 		return this.name2.getText();
 	}
 	public int getWallet() {
-		return Integer.parseInt(this.walletAmt.getSelectedObjects().toString());
+		return Integer.parseInt(this.walletAmt.getSelectedItem().toString());
 	}
 	public int getRolls () {
-		return Integer.parseInt(this.diceAmt.getSelectedObjects().toString());
+		return Integer.parseInt(this.diceAmt.getSelectedItem().toString());
 	}
 	public int getRounds() {
-		return Integer.parseInt(this.rndAmt.getSelectedObjects().toString());
+		return Integer.parseInt(this.rndAmt.getSelectedItem().toString());
 	}
 }

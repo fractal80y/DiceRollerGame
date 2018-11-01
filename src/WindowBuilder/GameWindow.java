@@ -17,74 +17,70 @@ import java.awt.Insets;
 
 public class GameWindow {
 
-<<<<<<< HEAD
-	private JFrame frmGameWindow;
-=======
 	private JFrame jf;
 	private JComboBox<Integer> betAmt;
->>>>>>> branch 'Doije-patch-1' of https://github.com/fractal80y/DiceRollerGame.git
+	private JButton roll;
+	private JButton quit;
+	
+	private JLabel p1Wallet;
+	private JLabel p2Wallet;
+	
+	private JLabel p1Rolls;
+	private JLabel p2Rolls;
+	private JLabel p1Total;
+	private JLabel p2Total;
+	
+	private JLabel roundCounter;
+	
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					GameWindow window = new GameWindow();
-					window.frmGameWindow.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	
 
 	/**
 	 * Create the application.
 	 */
-	public GameWindow() {
-		initialize();
+	public GameWindow(String name1,String name2, int wallet,int gameNumber) {
+		initialize(name1,name2,wallet);
+		this.setRoundCounter(1, gameNumber);
+		jf.setVisible(true);
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		frmGameWindow = new JFrame();
-		frmGameWindow.setTitle("Game Window");
-		frmGameWindow.setBounds(100, 100, 450, 300);
-		frmGameWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	
+	private void initialize(String name1, String name2, int wallet) {
+		jf = new JFrame();
+		jf.setTitle("Game Window");
+		jf.setBounds(100, 100, 450, 300);
+		jf.setLocationRelativeTo(null);
+		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JPanel playerPan = new JPanel();
-		frmGameWindow.getContentPane().add(playerPan, BorderLayout.NORTH);
+		jf.getContentPane().add(playerPan, BorderLayout.NORTH);
 		
-		JLabel lblNewLabel = new JLabel("Player1's Wallet");
-		playerPan.add(lblNewLabel);
+		JLabel p1Label = new JLabel(name1+"'s Wallet");
+		playerPan.add(p1Label);
 		
-		JLabel lblNewLabel_1 = new JLabel("1000");
-		playerPan.add(lblNewLabel_1);
+		p1Wallet = new JLabel(String.valueOf(wallet));
+		playerPan.add(p1Wallet);
 		
 		Component horizontalStrut = Box.createHorizontalStrut(20);
 		playerPan.add(horizontalStrut);
 		
-		JLabel lblPlayersWallet = new JLabel("Player2's Wallet");
-		playerPan.add(lblPlayersWallet);
+		JLabel p2Label = new JLabel(name2+"s Wallet");
+		playerPan.add(p2Label);
 		
-		JLabel lblNewLabel_2 = new JLabel("1000");
-		playerPan.add(lblNewLabel_2);
+		p2Wallet = new JLabel(String.valueOf(wallet));
+		playerPan.add(p2Wallet);
 		
 		JPanel buttonPan = new JPanel();
-		frmGameWindow.getContentPane().add(buttonPan, BorderLayout.SOUTH);
+		jf.getContentPane().add(buttonPan, BorderLayout.SOUTH);
 		
-		JButton btnNewButton = new JButton("Roll");
-		buttonPan.add(btnNewButton);
+		roll = new JButton("Roll");
+		buttonPan.add(roll);
 		
-		JButton btnNewButton_1 = new JButton("Quit");
-		buttonPan.add(btnNewButton_1);
+		quit = new JButton("Quit");
+		buttonPan.add(quit);
 		
 		JPanel infoPan = new JPanel();
-		frmGameWindow.getContentPane().add(infoPan, BorderLayout.CENTER);
+		jf.getContentPane().add(infoPan, BorderLayout.CENTER);
 		infoPan.setLayout(null);
 		
 		JLabel lblNewLabel_3 = new JLabel("Set Bet Amount");
@@ -96,13 +92,13 @@ public class GameWindow {
 		betAmt.setModel(new DefaultComboBoxModel(new String[] {"50", "100", "200", "500", "All In"}));
 		infoPan.add(betAmt);
 		
-		JLabel lblNewLabel_4 = new JLabel("Player 1 Rolled");
-		lblNewLabel_4.setBounds(40, 55, 100, 14);
-		infoPan.add(lblNewLabel_4);
+		JLabel p1Rolled = new JLabel(name1+" Rolled");
+		p1Rolled.setBounds(40, 55, 100, 14);
+		infoPan.add(p1Rolled);
 		
-		JLabel lblNewLabel_6 = new JLabel("Player 2 Rolled");
-		lblNewLabel_6.setBounds(320, 55, 100, 14);
-		infoPan.add(lblNewLabel_6);
+		JLabel p2Rolled = new JLabel(name2+" Rolled");
+		p2Rolled.setBounds(320, 55, 100, 14);
+		infoPan.add(p2Rolled);
 		
 		JLabel p1Rolls = new JLabel("0,1,3,4,5");
 		p1Rolls.setBounds(50, 74, 55, 14);
@@ -127,8 +123,39 @@ public class GameWindow {
 		JLabel p2Total = new JLabel("30");
 		p2Total.setBounds(254, 74, 46, 14);
 		infoPan.add(p2Total);
+		
+		roundCounter = new JLabel("New label");
+		roundCounter.setBounds(183, 118, 200, 14);
+		infoPan.add(roundCounter);
 	}
 	public int getBet() {
 		return Integer.parseInt(this.betAmt.getSelectedItem().toString());
+	}
+	public JButton getRoll () {
+		return this.roll;
+	}
+	public JButton getQuit () {
+		return this.quit;
+	}
+	public void setP1Rolls (String str) {
+		this.p1Rolls.setText(str);
+	}
+	public void setP2Rolls (String str) {
+		this.p2Rolls.setText(str);
+	}
+	public void setP1Total (String str) {
+		this.p1Total.setText(str);
+	}
+	public void setP2Total (String str) {
+		this.p2Total.setText(str);
+	}
+	public void setP1Wallet (int wallet) {
+		this.p1Wallet.setText(String.valueOf(wallet));
+	}
+	public void setP2Wallet (int wallet) {
+		this.p2Wallet.setText(String.valueOf(wallet));
+	}
+	public void setRoundCounter (int currentRound, int maxRound) {
+		this.roundCounter.setText("Round "+currentRound+"/"+maxRound);
 	}
 }

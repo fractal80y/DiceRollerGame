@@ -1,6 +1,7 @@
-package gameWIndow;
+package gameWindow;
 
 public class GameLogic {
+	
 	public GameLogic() {
 		
 	}
@@ -13,17 +14,22 @@ public class GameLogic {
 			total2 += roll2[i];
 			
 		}
+		System.out.print(""+total1+total2);
 		return compareInts(total1,total2);
 		
 	}
 	public boolean compareInts(int num1,int num2) {
-		boolean comp=false;
+		boolean comp = false;
 		if (num1>num2) {
 			comp = true;
 		}
 		else if (num1<num2){
 			comp = false;
 		}
+		else {
+			System.out.print("Placeholder for coin");
+		}
 		return comp;
 	}
+	
 }
