@@ -17,42 +17,28 @@ import java.awt.Insets;
 
 public class GameWindow {
 
-	private JFrame frmGameWindow;
+	private JFrame jf;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					GameWindow window = new GameWindow();
-					window.frmGameWindow.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	
 
 	/**
 	 * Create the application.
 	 */
 	public GameWindow() {
 		initialize();
+		jf.setVisible(true);
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
+	
 	private void initialize() {
-		frmGameWindow = new JFrame();
-		frmGameWindow.setTitle("Game Window");
-		frmGameWindow.setBounds(100, 100, 450, 300);
-		frmGameWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		jf = new JFrame();
+		jf.setTitle("Game Window");
+		jf.setBounds(100, 100, 450, 300);
+		jf.setLocationRelativeTo(null);
+		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JPanel playerPan = new JPanel();
-		frmGameWindow.getContentPane().add(playerPan, BorderLayout.NORTH);
+		jf.getContentPane().add(playerPan, BorderLayout.NORTH);
 		
 		JLabel lblNewLabel = new JLabel("Player1's Wallet");
 		playerPan.add(lblNewLabel);
@@ -70,7 +56,7 @@ public class GameWindow {
 		playerPan.add(lblNewLabel_2);
 		
 		JPanel buttonPan = new JPanel();
-		frmGameWindow.getContentPane().add(buttonPan, BorderLayout.SOUTH);
+		jf.getContentPane().add(buttonPan, BorderLayout.SOUTH);
 		
 		JButton btnNewButton = new JButton("Roll");
 		buttonPan.add(btnNewButton);
@@ -79,7 +65,7 @@ public class GameWindow {
 		buttonPan.add(btnNewButton_1);
 		
 		JPanel infoPan = new JPanel();
-		frmGameWindow.getContentPane().add(infoPan, BorderLayout.CENTER);
+		jf.getContentPane().add(infoPan, BorderLayout.CENTER);
 		infoPan.setLayout(null);
 		
 		JLabel lblNewLabel_3 = new JLabel("Set Bet Amount");
