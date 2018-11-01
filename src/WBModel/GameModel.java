@@ -7,9 +7,9 @@ public class GameModel {
 	private Game game;
 	
 	
-	public GameModel (String name, String name2, int rolls, int games,int wallet) {
+	public GameModel (Game game) {
 		
-		game = new Game(name, name2,rolls,games,wallet);
+		this.game = game;
 		
 	}
 	
