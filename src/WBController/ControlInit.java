@@ -3,7 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import WindowBuilder.*;
 import WBModel.*;
-import gameWindow.*;
+import gameWIndow.*;
 public class ControlInit {
 	private InitWin initWin;
 	private WBController.ControlGame gCon;

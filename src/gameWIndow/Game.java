@@ -1,4 +1,4 @@
-package gameWindow;
+package gameWIndow;
 
 import diceGame.Dice;
 import diceGame.Player;

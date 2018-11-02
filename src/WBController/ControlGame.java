@@ -1,5 +1,5 @@
 package WBController;
-import gameWindow.*;
+import gameWIndow.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

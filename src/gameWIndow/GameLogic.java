@@ -1,4 +1,4 @@
-package gameWindow;
+package gameWIndow;
 
 public class GameLogic {
 	
@@ -18,6 +18,20 @@ public class GameLogic {
 		return compareInts(total1,total2);
 		
 	}
+	
+	//Lambda Block Expression, using Interface to bind function to variable
+	interface CoinFlip{
+		public boolean flipIt();
+	}
+	
+	//Lambda Coin toss
+	CoinFlip toss = () -> {
+		byte x;
+		 x =(byte) Math.round(Math.random());
+		  
+		  return  (x == 1) ? true : false;   
+	};
+	
 	public boolean compareInts(int num1,int num2) {
 		boolean comp = false;
 		if (num1>num2) {
@@ -27,7 +41,10 @@ public class GameLogic {
 			comp = false;
 		}
 		else {
-			System.out.print("Placeholder for coin");
+				if(toss.flipIt()) System.out.print("HEADS") ;
+			  
+				else System.out.print("TAILS") ;
+			
 		}
 		return comp;
 	}

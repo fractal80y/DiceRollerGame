@@ -1,4 +1,4 @@
-package gameWindow;
+package gameWIndow;
 import java.awt.BorderLayout;
 import javax.swing.*;
 public class GameFrame {

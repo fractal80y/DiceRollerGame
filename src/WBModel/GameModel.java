@@ -1,5 +1,5 @@
 package WBModel;
-import gameWindow.*;
+import gameWIndow.*;
 import diceGame.*;
 public class GameModel {
 	private Player p1;
