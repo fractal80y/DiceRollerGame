@@ -116,11 +116,11 @@ public class GameWindow {
 		lblNewLabel_9.setBounds(244, 55, 66, 14);
 		infoPan.add(lblNewLabel_9);
 		
-		JLabel p1Total = new JLabel("30");
+		p1Total = new JLabel("");
 		p1Total.setBounds(146, 74, 46, 14);
 		infoPan.add(p1Total);
 		
-		JLabel p2Total = new JLabel("30");
+		p2Total = new JLabel("");
 		p2Total.setBounds(254, 74, 46, 14);
 		infoPan.add(p2Total);
 		
@@ -156,6 +156,6 @@ public class GameWindow {
 		this.p2Wallet.setText(String.valueOf(wallet));
 	}
 	public void setRoundCounter (int currentRound, int maxRound) {
-		this.roundCounter.setText("Round "+currentRound+"/"+maxRound);
+		this.roundCounter.setText("Round "+(currentRound+1)+"/"+maxRound);
 	}
 }

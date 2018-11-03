@@ -6,17 +6,6 @@ public class GameLogic {
 		
 	}
 	
-	public boolean addCompare(int[] roll1,int[] roll2){
-		int total1 =0;
-		int total2 =0;
-		for (int i = 0;i<roll1.length;i++){
-			total1 += roll1[i];
-			total2 += roll2[i];
-			
-		}
-		return compareInts(total1,total2);
-		
-	}
 	
 	//Lambda Block Expression, using Interface to bind function to variable
 	interface CoinFlip{

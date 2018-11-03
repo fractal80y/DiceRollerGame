@@ -35,6 +35,13 @@ public class Player {
 	public ArrayList<int[]> getRollsList() {
 		return this.rollsList;
 	}
+	public int addRolls (int list) {
+		int total = 0;
+		for (int i = 0;i<getRollsListIndex(list).length;i++){
+			total += getRollsListIndex(list)[i];
+		}
+		return total;
+	}
 	//DONE
 	public void addRollList (int[] intList) {
 		this.rollsList.add(intList);

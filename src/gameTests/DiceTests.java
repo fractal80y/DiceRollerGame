@@ -7,11 +7,7 @@ import org.junit.jupiter.api.Test;
 
 class DiceTests {
 	private Dice d = new Dice () ;
-
-	@Test
-	void test() {
-		//fail("Not yet implemented");
-	}
+	
 	//Testing the roll number generator
 	@Test
 	public void diceNumTest () {

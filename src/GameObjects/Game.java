@@ -22,26 +22,34 @@ public class Game {
 	public int[] generateRolls () {
 		return d.generateRolls(rollNumber);
 	}
-	public void playerRoll (int bet) {
+	public void playerRoll () {
 		player1.getRollsList().add(generateRolls());
 		player2.getRollsList().add(generateRolls());
-		determineRoundWin(addComp());
+		
+	}
+	public void winChecks (int bet) {
+		determineRoundWin(compareInts(player1.addRolls(roundTotal),player2.addRolls(roundTotal)));
+		
 		determineMatchWin(bet);
 	}
 	public void incRoundTotal () {
 		roundTotal++;
 	}
-	public boolean addComp () {
-		return gLog.addCompare(player1.getRollsListIndex(roundTotal),player2.getRollsListIndex(roundTotal));	
+	public boolean compareInts (int total1, int total2) {
+		return gLog.compareInts(total1, total2);	
 	}
 	public void determineRoundWin (boolean foo) {
 		if (foo == true) {
 			player1.updateGamesWon();
+			System.out.print("Mingus");
+			incRoundTotal();
 		}
 		else if (foo == false) {
 			player2.updateGamesWon();
+			System.out.print("Mingus2");
+			incRoundTotal();
 		}
-		incRoundTotal();
+		
 	}
 	public void determineMatchWin(int bet) {
 		double wins = (Math.ceil((double)this.gameNumber/2));
@@ -78,5 +86,11 @@ public class Game {
 	}
 	public int getCurrentRounds() {
 		return this.roundTotal;
+	}
+	public int getP1Total () {
+		return player1.addRolls(roundTotal);
+	}
+	public int getP2Total () {
+		return player2.addRolls(roundTotal);
 	}
 }
