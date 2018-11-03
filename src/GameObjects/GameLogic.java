@@ -14,7 +14,6 @@ public class GameLogic {
 			total2 += roll2[i];
 			
 		}
-		System.out.print(""+total1+total2);
 		return compareInts(total1,total2);
 		
 	}
@@ -31,7 +30,7 @@ public class GameLogic {
 		  
 		  return  (x == 1) ? true : false;   
 	};
-	
+	//Coin
 	public boolean compareInts(int num1,int num2) {
 		boolean comp = false;
 		if (num1>num2) {
