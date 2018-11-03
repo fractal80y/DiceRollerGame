@@ -28,17 +28,6 @@ public class ControlInit {
 		initWin.getLaunch().addActionListener(aListen);
 		}
 	public void launch () {
-		
-		
-		
-		
-		
-		//initWin.getJF().dispose();
-		System.out.print(initWin.getRolls());
-		System.out.print(initWin.getRounds());
-		System.out.print(initWin.getWallet());
-		
-		
 		gCon = new WBController.ControlGame(initWin.getN1(),initWin.getN2(),initWin.getRolls(),initWin.getRounds(),initWin.getWallet());
 		initWin.getJF().dispose();
 	}

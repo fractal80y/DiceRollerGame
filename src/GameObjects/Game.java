@@ -20,36 +20,23 @@ public class Game {
 		roundTotal = 0;
 	}
 	public int[] generateRolls () {
-		int[] newRolls = new int[this.rollNumber];
-		
-		for (int i = 0; i<this.rollNumber;i++) {
-			
-			newRolls[i] = d.rollCommandLine();
-		}
-		return newRolls;
+		return d.generateRolls(rollNumber);
 	}
 	public void playerRoll (int bet) {
-		System.out.println("Roll list " +player1.getRollsList().size());
 		player1.getRollsList().add(generateRolls());
 		player2.getRollsList().add(generateRolls());
-		System.out.println("Roll list " +player1.getRollsList().size());
 		determineRoundWin(addComp());
 		determineMatchWin(bet);
-		
 	}
 	public void incRoundTotal () {
 		roundTotal++;
 	}
 	public boolean addComp () {
-		return gLog.addCompare(player1.getRollsListIndex(roundTotal),player2.getRollsListIndex(roundTotal));
-		
+		return gLog.addCompare(player1.getRollsListIndex(roundTotal),player2.getRollsListIndex(roundTotal));	
 	}
 	public void determineRoundWin (boolean foo) {
 		if (foo == true) {
 			player1.updateGamesWon();
-			//incRoundTotal();
-			
-			
 		}
 		else if (foo == false) {
 			player2.updateGamesWon();
@@ -58,19 +45,18 @@ public class Game {
 		incRoundTotal();
 	}
 	public void determineMatchWin(int bet) {
-		double wins = (double)this.gameNumber/2;
-		if (player1.getGamesWon()==(int)Math.ceil(wins)) {
+		double wins = (Math.ceil((double)this.gameNumber/2));
+		if (player1.getGamesWon()==((int)Math.ceil(wins))) {
 			player1.updateWallet(bet);
 			player2.updateWallet(-bet);
 			resetGamesWon();
 			clearRollList();
 		}
-		else if (player2.getGamesWon()==(int)Math.ceil(wins)) {
+		else if (player2.getGamesWon()==((int)Math.ceil(wins))) {
 			player1.updateWallet(-bet);
 			player2.updateWallet(bet);
 			resetGamesWon();
 			clearRollList();
-			
 		}
 	}
 	public void resetGamesWon() {

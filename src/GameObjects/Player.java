@@ -51,5 +51,7 @@ public class Player {
 	public void resetGamesWon () {
 		this.gamesWon = 0;
 	}
-	
+	public void setWallet(int wallet) {
+		this.wallet = wallet;
+	}	
 }
