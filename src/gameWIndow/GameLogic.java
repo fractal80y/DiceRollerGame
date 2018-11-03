@@ -30,23 +30,34 @@ public class GameLogic {
 		 x =(byte) Math.round(Math.random());
 		  
 		  return  (x == 1) ? true : false;   
-	};
+	}; //lambda needs ; after brace
+	
+	
+	public boolean headsOrTails() {
+		
+		if(toss.flipIt()) {
+				System.out.println("HEADS"); 
+		return true;}
+		
+		else {	
+				System.out.println("TAILS"); 
+		return false;}
+		
+		
+	}
 	
 	public boolean compareInts(int num1,int num2) {
-		boolean comp = false;
+		
 		if (num1>num2) {
-			comp = true;
+			return true;
 		}
 		else if (num1<num2){
-			comp = false;
+			return false;
 		}
 		else {
-				if(toss.flipIt()) System.out.print("HEADS") ;
-			  
-				else System.out.print("TAILS") ;
-			
+			return headsOrTails();
 		}
-		return comp;
+		
 	}
 	
 }
