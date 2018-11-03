@@ -24,4 +24,8 @@ class GameLogicTests {
 		assertFalse(testLogic.compareInts(10, 20));
 		
 	}
+	
+	@Test
+	
+	
 }

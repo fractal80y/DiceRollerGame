@@ -62,6 +62,7 @@ public class Game {
 			resetGamesWon();
 			clearRollList();
 		}
+		gLog.gameOver(player1.getWallet(), player2.getWallet());
 	}
 	public void resetGamesWon() {
 		player1.resetGamesWon();
