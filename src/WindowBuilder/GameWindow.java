@@ -29,6 +29,10 @@ public class GameWindow {
 	private JLabel p2Rolls;
 	private JLabel p1Total;
 	private JLabel p2Total;
+	private JLabel p1roundCount;
+	private JLabel p2roundCount;
+	private JLabel p1Count;
+	private JLabel p2Count;
 	
 	private JLabel roundCounter;
 	
@@ -100,12 +104,12 @@ public class GameWindow {
 		p2Rolled.setBounds(320, 55, 100, 14);
 		infoPan.add(p2Rolled);
 		
-		JLabel p1Rolls = new JLabel("0,1,3,4,5");
-		p1Rolls.setBounds(50, 74, 55, 14);
+		p1Rolls = new JLabel("0,1,3,4,5");
+		p1Rolls.setBounds(40, 74, 55, 14);
 		infoPan.add(p1Rolls);
 		
-		JLabel p2Rolls = new JLabel("0,1,2,3,4");
-		p2Rolls.setBounds(335, 74, 55, 14);
+		p2Rolls = new JLabel("0,1,2,3,4");
+		p2Rolls.setBounds(320, 74, 55, 14);
 		infoPan.add(p2Rolls);
 		
 		JLabel lblNewLabel_8 = new JLabel("Roll Total");
@@ -125,8 +129,24 @@ public class GameWindow {
 		infoPan.add(p2Total);
 		
 		roundCounter = new JLabel("New label");
-		roundCounter.setBounds(183, 118, 200, 14);
+		roundCounter.setBounds(183, 118, 86, 14);
 		infoPan.add(roundCounter);
+		
+		p1roundCount = new JLabel(name1+" Wins");
+		p1roundCount.setBounds(40, 118, 113, 14);
+		infoPan.add(p1roundCount);
+		
+		p2roundCount = new JLabel(name2+" Wins");
+		p2roundCount.setBounds(320, 118, 113, 14);
+		infoPan.add(p2roundCount);
+		
+		p1Count = new JLabel("0");
+		p1Count.setBounds(40, 142, 46, 14);
+		infoPan.add(p1Count);
+		
+		p2Count = new JLabel("0");
+		p2Count.setBounds(320, 142, 46, 14);
+		infoPan.add(p2Count);
 	}
 	public int getBet() {
 		return Integer.parseInt(this.betAmt.getSelectedItem().toString());
@@ -157,5 +177,11 @@ public class GameWindow {
 	}
 	public void setRoundCounter (int currentRound, int maxRound) {
 		this.roundCounter.setText("Round "+(currentRound+1)+"/"+maxRound);
+	}
+	public void setP1Count (int wins) {
+		this.p1Count.setText(String.valueOf(wins));
+	}
+	public void setP2Count (int wins) {
+		this.p2Count.setText(String.valueOf(wins));
 	}
 }

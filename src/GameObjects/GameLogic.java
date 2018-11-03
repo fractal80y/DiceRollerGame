@@ -29,9 +29,9 @@ public class GameLogic {
 			comp = false;
 		}
 		else {
-				if(toss.flipIt()) System.out.print("HEADS") ;
+				if(toss.flipIt())  ;
 			  
-				else System.out.print("TAILS") ;
+				else  ;
 			
 		}
 		return comp;

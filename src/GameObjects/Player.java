@@ -42,6 +42,13 @@ public class Player {
 		}
 		return total;
 	}
+	public String rollString (int list) {
+		String total = "";
+		for (int i = 0;i<getRollsListIndex(list).length;i++){
+			total += (getRollsListIndex(list)[i]+ " ");
+		}
+		return total;
+	}
 	//DONE
 	public void addRollList (int[] intList) {
 		this.rollsList.add(intList);

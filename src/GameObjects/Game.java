@@ -29,7 +29,6 @@ public class Game {
 	}
 	public void winChecks (int bet) {
 		determineRoundWin(compareInts(player1.addRolls(roundTotal),player2.addRolls(roundTotal)));
-		
 		determineMatchWin(bet);
 	}
 	public void incRoundTotal () {
@@ -41,12 +40,10 @@ public class Game {
 	public void determineRoundWin (boolean foo) {
 		if (foo == true) {
 			player1.updateGamesWon();
-			System.out.print("Mingus");
 			incRoundTotal();
 		}
 		else if (foo == false) {
 			player2.updateGamesWon();
-			System.out.print("Mingus2");
 			incRoundTotal();
 		}
 		
@@ -75,22 +72,16 @@ public class Game {
 		player1.clearRollList();
 		player2.clearRollList();
 	}
-	public int getP1Wal() {
-		return this.player1.getWallet();
-	}
-	public int getP2Wal() {
-		return this.player2.getWallet();
-	}
 	public int getMaxRounds() {
 		return this.gameNumber;
 	}
 	public int getCurrentRounds() {
 		return this.roundTotal;
 	}
-	public int getP1Total () {
-		return player1.addRolls(roundTotal);
+	public Player getPlayer1 () {
+		return this.player1;
 	}
-	public int getP2Total () {
-		return player2.addRolls(roundTotal);
+	public Player getPlayer2 () {
+		return this.player2;
 	}
 }
