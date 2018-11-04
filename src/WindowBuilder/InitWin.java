@@ -28,6 +28,7 @@ public class InitWin {
 	public InitWin() {
 		initialize();
 		jf.setVisible(true);
+		jf.setResizable(false);
 	}
 	private void initialize() {
 		jf = new JFrame();
@@ -36,6 +37,7 @@ public class InitWin {
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		jf.setLocationRelativeTo(null);
 		jf.getContentPane().setLayout(new BorderLayout(0, 0));
+		
 		
 		JPanel playerP = new JPanel();
 		jf.getContentPane().add(playerP, BorderLayout.NORTH);

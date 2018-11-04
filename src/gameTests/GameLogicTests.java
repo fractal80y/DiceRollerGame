@@ -2,7 +2,9 @@ package gameTests;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.Rule;
 import org.junit.jupiter.api.Test;
+import org.junit.rules.ExpectedException;
 
 import GameObjects.GameLogic;
 
@@ -21,7 +23,28 @@ class GameLogicTests {
 		assertFalse(testLogic.compareInts(10, 20));
 	}
 	
+	@Test 
+	
+	public void validRangeCoinInteger(){
+		
+		assertTrue(testLogic.getHeadOrTail(0));
+		
+	}
 	
 	
+@Test 
 	
+	public void validRangeCoinInteger2(){
+		
+		assertFalse(testLogic.getHeadOrTail(1));
+		
+	}
+
+@Test
+public void itShouldThrowIllegalArgumentException() {
+    assertThrows(IllegalArgumentException.class,
+            ()->{
+            testLogic.getHeadOrTail(4);
+            });
+	}
 }

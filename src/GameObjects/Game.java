@@ -27,6 +27,7 @@ public class Game {
 		player2.getRollsList().add(generateRolls());
 		
 	}
+	//Possible candidate for the strategy class
 	public void winChecks (int bet) {
 		determineRoundWin(compareInts(player1.addRolls(roundTotal),player2.addRolls(roundTotal)));
 		determineMatchWin(bet);
@@ -34,9 +35,11 @@ public class Game {
 	public void incRoundTotal () {
 		roundTotal++;
 	}
+	//Really this is just a delegate method from the strategy class
 	public boolean compareInts (int total1, int total2) {
 		return gLog.compareInts(total1, total2);	
 	}
+	//logic for the strategy class
 	public void determineRoundWin (boolean foo) {
 		if (foo == true) {
 			player1.updateGamesWon();
@@ -48,24 +51,24 @@ public class Game {
 		}
 		
 	}
+	//Logic for the strategy class - careful here because we are dealing with updates to game informatiom
 	public void determineMatchWin(int bet) {
 		double wins = (Math.ceil((double)this.gameNumber/2));
 		if (player1.getGamesWon()==((int)Math.ceil(wins))) {
 			player1.updateWallet(bet);
 			player2.updateWallet(-bet);
-			System.out.println(bet);
 			resetGamesWon();
 			clearRollList();
 		}
 		else if (player2.getGamesWon()==((int)Math.ceil(wins))) {
 			player1.updateWallet(-bet);
 			player2.updateWallet(bet);
-			System.out.println(bet);
 			resetGamesWon();
 			clearRollList();
 		}
 		gLog.gameOver(player1.getWallet(), player2.getWallet());
 	}
+	//Setting/ Getting values
 	public void resetGamesWon() {
 		player1.resetGamesWon();
 		player2.resetGamesWon();

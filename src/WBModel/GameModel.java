@@ -8,22 +8,27 @@ import GameObjects.Player;
 
 public class GameModel {
 	private Game game;
+	
+	//The current bet value for the game that has been returned from the view
 	private int betValue;
-	// Insert check in the controller to determine if thegame loop is allowed to happen
+	
+	//Used to determine whether the current selected bet is valid
 	private boolean betValid;
 	
 	public GameModel (String name1, String name2, int rollNumber, int gameNumber, int wallet) {
 		this.game = new Game ( name1,  name2,  rollNumber,  gameNumber,  wallet);
-		this.betValue = 0;
+		this.betValue = 50;
 		this.betValid = true;
 	}
+	//Game operations that are stored in the game class
 	public void playerRolls() {
 		game.playerRoll();
 	}
-	// I changed this to use the instance variable so check if this is a source of error
+	//Works fine however it uses logic stored in the game class
 	public void winChecks () {
 		game.winChecks(betValue);
 	}
+	// This works with the controller and view
 	public void checkThatBetIsValid (String bet) throws NumberFormatException {
 		try {
 		if (Integer.parseInt(bet) > getP1Wallet() || Integer.parseInt(bet) > getP2Wallet()) {
@@ -42,6 +47,7 @@ public class GameModel {
 		}
 		
 	}
+	// THis method works with the controller 
 	public void betSetter (String bet) {
 		//Logic for detecting betvalue including the all in button
 		if (String.valueOf(bet) == "All In") {
@@ -51,6 +57,7 @@ public class GameModel {
 			this.betValue = Integer.parseInt(bet);
 		}
 	}
+	// This can probably go into strategy class
 	public int getLowestPlayerWallet () {
 		int allInBet = 0;
 		if (getP1Wallet() > getP2Wallet()) {

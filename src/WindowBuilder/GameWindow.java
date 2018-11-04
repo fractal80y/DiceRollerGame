@@ -40,6 +40,7 @@ public class GameWindow {
 		initialize(name1,name2,wallet);
 		this.setRoundCounter(1, gameNumber);
 		jf.setVisible(true);
+		jf.setResizable(false);
 	}
 	private void initialize(String name1, String name2, int wallet) {
 		jf = new JFrame();
@@ -47,6 +48,7 @@ public class GameWindow {
 		jf.setBounds(100, 100, 450, 300);
 		jf.setLocationRelativeTo(null);
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 		
 		JPanel playerPan = new JPanel();
 		jf.getContentPane().add(playerPan, BorderLayout.NORTH);

@@ -45,7 +45,7 @@ public class GameLogic {
 		else { 
 			
 			
-				if(toss.flipIt() == getHeadOrTail()) { 
+				if(toss.flipIt() == getHeadOrTail(headOrTailDialog())) { 
 					
 					comp=true; 
 					//find this one
@@ -62,8 +62,8 @@ public class GameLogic {
 		return comp;
 	}
 	
-	public boolean getHeadOrTail() {
-		boolean choice = true;
+	public int headOrTailDialog() {
+		
 		Object[] options = {"Heads","Tails"};
 		int coin = JOptionPane.showOptionDialog(new JFrame(),
 				"Player 1 Call Heads or Tails  "+ "","A silly Question?",
@@ -71,9 +71,22 @@ public class GameLogic {
 				JOptionPane.QUESTION_MESSAGE,
 				null,options, options[1]);
 		
-		if(coin == 0) choice = true;
-		else choice = false;
-
-		return choice;
-	}	
+		return coin;
+		
+	}
+	
+	public boolean getHeadOrTail(int coin) {
+		boolean choice = true;
+		
+		if(coin == 0 || coin == 1) {
+		
+				if(coin == 0) choice = true;
+				
+				else choice = false;
+				
+				return choice;
+			}
+		else throw new IllegalArgumentException("range not 0 or 1");
+	}
+	
 }
