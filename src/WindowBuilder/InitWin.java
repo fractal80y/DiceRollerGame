@@ -17,7 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.DefaultComboBoxModel;
 
 public class InitWin {
-
+	//Initialising these components outside of the initialise method allows us to write access methods
 	private JFrame jf;
 	private JTextField name1;
 	private JTextField name2;
@@ -27,9 +27,11 @@ public class InitWin {
 	private JComboBox<Integer> rndAmt;
 	public InitWin() {
 		initialize();
+		//These properties were bugging when set inside the initialise() method
 		jf.setVisible(true);
 		jf.setResizable(false);
 	}
+	//Method to initialise the INIT window
 	private void initialize() {
 		jf = new JFrame();
 		jf.setTitle("Initialsation Window");

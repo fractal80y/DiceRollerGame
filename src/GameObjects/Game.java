@@ -19,18 +19,18 @@ public class Game {
 		this.gameNumber = gameNumber;
 		roundTotal = 0;
 	}
+	//Delegate Method of the rolls class
 	public int[] generateRolls () {
 		return d.generateRolls(rollNumber);
 	}
+	//Combines functions of player and dice class to populated the player ArrayList<int[]>
 	public void playerRoll () {
 		player1.getRollsList().add(generateRolls());
-		player2.getRollsList().add(generateRolls());
-		
+		player2.getRollsList().add(generateRolls());	
 	}
-	//Possible candidate for the strategy class
 	public void winChecks (int bet) {
 		determineRoundWin(compareInts(player1.addRolls(roundTotal),player2.addRolls(roundTotal)));
-		determineMatchWin(bet);
+		updateWinningPlayers(bet);
 	}
 	public void incRoundTotal () {
 		roundTotal++;
@@ -39,7 +39,7 @@ public class Game {
 	public boolean compareInts (int total1, int total2) {
 		return gLog.compareInts(total1, total2);	
 	}
-	//logic for the strategy class
+	//Relies on logic from the strategy class but handles information updates
 	public void determineRoundWin (boolean foo) {
 		if (foo == true) {
 			player1.updateGamesWon();
@@ -51,8 +51,8 @@ public class Game {
 		}
 		
 	}
-	//Logic for the strategy class - careful here because we are dealing with updates to game informatiom
-	public void determineMatchWin(int bet) {
+	//Updates wallets then tests the end game case
+	public void updateWinningPlayers(int bet) {
 		double wins = (Math.ceil((double)this.gameNumber/2));
 		if (player1.getGamesWon()==((int)Math.ceil(wins))) {
 			player1.updateWallet(bet);
@@ -68,7 +68,7 @@ public class Game {
 		}
 		gLog.gameOver(player1.getWallet(), player2.getWallet());
 	}
-	//Setting/ Getting values
+	//Setting/ Getting values of various fields
 	public void resetGamesWon() {
 		player1.resetGamesWon();
 		player2.resetGamesWon();
@@ -89,5 +89,9 @@ public class Game {
 	}
 	public Player getPlayer2 () {
 		return this.player2;
+	}
+	//game logic delegate method
+	public int getLowestPlayerWallet() {
+		return gLog.getLowestPlayerWallet(player1.getWallet(), player2.getWallet());
 	}
 }

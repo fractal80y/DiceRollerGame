@@ -51,19 +51,19 @@ public class ControlGame {
 		gWind.getQuit().addActionListener(aListen);
 		}
 	public void roll () {
-		
+		//In the case that a valid bet amount is selected, run the roll script
 		if (gMod.getValidBool() == true) {
-			
+			//roll the dice :) 
 			gMod.playerRolls();
 		
-		
+			//update the game window with the roll results
 			gWind.setP1Total(String.valueOf(gMod.getP1Total()));
 			gWind.setP2Total(String.valueOf(gMod.getP2Total()));
 			gWind.setP1Rolls(gMod.getP1RollString());
 			gWind.setP2Rolls(gMod.getP2RollString());
-			// update this in the game model to take the instance variable of betvalue
+			// checks for who won the round, and carries out bet updating
 			gMod.winChecks();
-		
+			//updates the UI elements with current values
 			gWind.setP1Wallet(gMod.getP1Wallet());
 			gWind.setP2Wallet(gMod.getP2Wallet());
 			gWind.setRoundCounter(gMod.getCurrentRound(), gMod.getMaxRounds());
@@ -71,7 +71,7 @@ public class ControlGame {
 			gWind.setP2Count(gMod.getPlayer2GamesWon());
 		}
 		else if (gMod.getValidBool()==false) {
-			//Number 2, not fixed
+			//Bet amount is invalid because a player doesn't have the appropriate amount of funds remaining
 			JOptionPane.showMessageDialog(new JFrame(), "Please select a valid betting amount");
 		}
 	}

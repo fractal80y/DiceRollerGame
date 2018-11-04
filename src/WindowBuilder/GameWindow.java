@@ -16,7 +16,7 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
 public class GameWindow {
-
+	//Initialising these components outside of the initialise method allows us to write access methods
 	private JFrame jf;
 	private JComboBox<Integer> betAmt;
 	private JButton roll;
@@ -56,7 +56,7 @@ public class GameWindow {
 		JLabel p1Label = new JLabel(name1+"'s Wallet");
 		playerPan.add(p1Label);
 		
-		p1Wallet = new JLabel(String.valueOf(wallet));
+		p1Wallet = new JLabel("$"+String.valueOf(wallet));
 		playerPan.add(p1Wallet);
 		
 		Component horizontalStrut = Box.createHorizontalStrut(20);
@@ -65,7 +65,7 @@ public class GameWindow {
 		JLabel p2Label = new JLabel(name2+"'s Wallet");
 		playerPan.add(p2Label);
 		
-		p2Wallet = new JLabel(String.valueOf(wallet));
+		p2Wallet = new JLabel("$"+String.valueOf(wallet));
 		playerPan.add(p2Wallet);
 		
 		JPanel buttonPan = new JPanel();
@@ -98,11 +98,11 @@ public class GameWindow {
 		p2Rolled.setBounds(320, 55, 100, 14);
 		infoPan.add(p2Rolled);
 		
-		p1Rolls = new JLabel("0,1,3,4,5");
+		p1Rolls = new JLabel("Ready to go");
 		p1Rolls.setBounds(40, 74, 55, 14);
 		infoPan.add(p1Rolls);
 		
-		p2Rolls = new JLabel("0,1,2,3,4");
+		p2Rolls = new JLabel("Ready to go");
 		p2Rolls.setBounds(320, 74, 55, 14);
 		infoPan.add(p2Rolls);
 		
@@ -164,10 +164,10 @@ public class GameWindow {
 		this.p2Total.setText(str);
 	}
 	public void setP1Wallet (int wallet) {
-		this.p1Wallet.setText(String.valueOf(wallet));
+		this.p1Wallet.setText("$"+String.valueOf(wallet));
 	}
 	public void setP2Wallet (int wallet) {
-		this.p2Wallet.setText(String.valueOf(wallet));
+		this.p2Wallet.setText("$"+String.valueOf(wallet));
 	}
 	public void setRoundCounter (int currentRound, int maxRound) {
 		this.roundCounter.setText("Round "+(currentRound+1)+"/"+maxRound);

@@ -28,12 +28,12 @@ public class GameModel {
 	public void winChecks () {
 		game.winChecks(betValue);
 	}
-	// This works with the controller and view
+	// This works with the controller and view for testing of bet values against the player wallet values
 	public void checkThatBetIsValid (String bet) throws NumberFormatException {
+		//By catching the NumberFormat Exception we are able to pass "All In" value through the logic
 		try {
 		if (Integer.parseInt(bet) > getP1Wallet() || Integer.parseInt(bet) > getP2Wallet()) {
 			this.betValid = false;
-			// Number 1, not fixed
 			JOptionPane.showMessageDialog(new JFrame(), "Please select a valid betting amount");
 		}
 		else if (Integer.parseInt(bet) <= getP1Wallet() && Integer.parseInt(bet) <= getP2Wallet()) {
@@ -41,6 +41,7 @@ public class GameModel {
 			betSetter(bet);
 		}
 		}catch (NumberFormatException e){}
+		//This block handles the all in case
 		if (String.valueOf(bet) == "All In") {
 			this.betValid = true;
 			betSetter(bet);
@@ -49,7 +50,6 @@ public class GameModel {
 	}
 	// THis method works with the controller 
 	public void betSetter (String bet) {
-		//Logic for detecting betvalue including the all in button
 		if (String.valueOf(bet) == "All In") {
 			this.betValue = getLowestPlayerWallet();
 		}
@@ -57,20 +57,11 @@ public class GameModel {
 			this.betValue = Integer.parseInt(bet);
 		}
 	}
-	// This can probably go into strategy class
+	//delegate method to grab the value of the lowest player's wallet
 	public int getLowestPlayerWallet () {
-		int allInBet = 0;
-		if (getP1Wallet() > getP2Wallet()) {
-			allInBet = getP2Wallet();
-		}
-		else if (getP1Wallet() < getP2Wallet()) {
-			allInBet = getP1Wallet();
-		}
-		else {
-			allInBet = getP1Wallet();
-		}
-		return allInBet;
+		return game.getLowestPlayerWallet();
 	}
+	//GET AND SET METHODS
 	public int getP1Wallet () {
 		return game.getPlayer1().getWallet();
 	}
