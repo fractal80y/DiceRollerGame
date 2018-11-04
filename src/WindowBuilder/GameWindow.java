@@ -148,8 +148,8 @@ public class GameWindow {
 		p2Count.setBounds(320, 142, 46, 14);
 		infoPan.add(p2Count);
 	}
-	public int getBet() {
-		return Integer.parseInt(this.betAmt.getSelectedItem().toString());
+	public String getBet() {
+		return this.betAmt.getSelectedItem().toString();
 	}
 	public JButton getRoll () {
 		return this.roll;
@@ -183,5 +183,8 @@ public class GameWindow {
 	}
 	public void setP2Count (int wins) {
 		this.p2Count.setText(String.valueOf(wins));
+	}
+	public JComboBox getBetAmt () {
+		return this.betAmt;
 	}
 }

@@ -86,7 +86,7 @@ public class InitWin {
 		setP.add(roundLbl);
 		
 		rndAmt = new JComboBox<Integer>();
-		rndAmt.setModel(new DefaultComboBoxModel(new String[] {"1", "3", "5", "7"}));
+		rndAmt.setModel(new DefaultComboBoxModel(new String[] {"3", "5", "7"}));
 		setP.add(rndAmt);
 	}
 	public JButton getLaunch () {

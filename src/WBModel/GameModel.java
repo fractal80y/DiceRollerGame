@@ -1,19 +1,67 @@
 package WBModel;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 import GameObjects.Game;
 import GameObjects.Player;
 
 public class GameModel {
 	private Game game;
+	private int betValue;
+	// Insert check in the controller to determine if thegame loop is allowed to happen
+	private boolean betValid;
 	
 	public GameModel (String name1, String name2, int rollNumber, int gameNumber, int wallet) {
-		this.game = new Game ( name1,  name2,  rollNumber,  gameNumber,  wallet);	
+		this.game = new Game ( name1,  name2,  rollNumber,  gameNumber,  wallet);
+		this.betValue = 0;
+		this.betValid = false;
 	}
 	public void playerRolls() {
 		game.playerRoll();
 	}
-	public void winChecks (int bet) {
-		game.winChecks(bet);
+	// I changed this to use the instance variable so check if this is a source of error
+	public void winChecks () {
+		game.winChecks(betValue);
+	}
+	public void checkThatBetIsValid (String bet) throws NumberFormatException {
+		try {
+		if (Integer.parseInt(bet) > getP1Wallet() || Integer.parseInt(bet) > getP2Wallet()) {
+			this.betValid = false;
+			JOptionPane.showMessageDialog(new JFrame(), "Please select a valid betting amount");
+		}
+		else if (Integer.parseInt(bet) <= getP1Wallet() && Integer.parseInt(bet) <= getP2Wallet()) {
+			this.betValid = true;
+			betSetter(bet);
+		}
+		}catch (NumberFormatException e){}
+		if (String.valueOf(bet) == "All In") {
+			this.betValid = true;
+			betSetter(bet);
+		}
+		
+	}
+	public void betSetter (String bet) {
+		//Logic for detecting betvalue including the all in button
+		if (String.valueOf(bet) == "All In") {
+			this.betValue = getLowestPlayerWallet();
+		}
+		else {
+			this.betValue = Integer.parseInt(bet);
+		}
+	}
+	public int getLowestPlayerWallet () {
+		int allInBet = 0;
+		if (getP1Wallet() > getP2Wallet()) {
+			allInBet = getP2Wallet();
+		}
+		else if (getP1Wallet() < getP2Wallet()) {
+			allInBet = getP1Wallet();
+		}
+		else {
+			allInBet = getP1Wallet();
+		}
+		return allInBet;
 	}
 	public int getP1Wallet () {
 		return game.getPlayer1().getWallet();
@@ -47,5 +95,8 @@ public class GameModel {
 	}
 	public int getPlayer2GamesWon() {
 		return game.getPlayer2().getGamesWon();
+	}
+	public boolean getValidBool() {
+		return this.betValid;
 	}
 }

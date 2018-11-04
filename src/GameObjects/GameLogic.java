@@ -26,18 +26,15 @@ public class GameLogic {
 	public void gameOver(int player1Wallet, int player2Wallet) {
 		
 		if(player1Wallet <=0) {
-			JOptionPane.showMessageDialog(new JFrame(), "Player 2 Wins, You Lose.");
+			JOptionPane.showMessageDialog(new JFrame(), "Player 2 Wins.");
 			System.exit(0);
 		}
 			
 		else if(player2Wallet <= 0) {
 			JOptionPane.showMessageDialog(new JFrame(), "Player 1 Wins.");
 			System.exit(0);
-
-		}
-		
+		}	
 	}
-	
 	//Coin
 	public boolean compareInts(int num1,int num2) {
 		boolean comp = false;
@@ -50,11 +47,13 @@ public class GameLogic {
 		else { 
 			
 			
-				if(toss.flipIt() == getHeadOrTail()) { comp=true; JOptionPane.showMessageDialog(new JFrame(), "player 1 wins that toss.");
+				if(toss.flipIt() == getHeadOrTail()) { 
+					comp=true; JOptionPane.showMessageDialog(new JFrame(), "player 1 wins that toss.");
 				
 				}
 		
-				else {comp = false; JOptionPane.showMessageDialog(new JFrame(), "player 2 wins that toss.");
+				else {
+					comp = false; JOptionPane.showMessageDialog(new JFrame(), "player 2 wins that toss.");
 				}
 		}
 		return comp;

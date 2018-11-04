@@ -53,12 +53,14 @@ public class Game {
 		if (player1.getGamesWon()==((int)Math.ceil(wins))) {
 			player1.updateWallet(bet);
 			player2.updateWallet(-bet);
+			System.out.println(bet);
 			resetGamesWon();
 			clearRollList();
 		}
 		else if (player2.getGamesWon()==((int)Math.ceil(wins))) {
 			player1.updateWallet(-bet);
 			player2.updateWallet(bet);
+			System.out.println(bet);
 			resetGamesWon();
 			clearRollList();
 		}

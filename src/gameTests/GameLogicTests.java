@@ -12,20 +12,16 @@ class GameLogicTests {
 	
 	@Test
 	public void testCoinFlip() {
-
 		assertTrue(testLogic.compareInts(20, 10));
-		
 		}
 
 	@Test 
 	
 	public void testCoinFlip2() {
-		
 		assertFalse(testLogic.compareInts(10, 20));
-		
 	}
 	
-	@Test
+	
 	
 	
 }
