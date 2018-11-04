@@ -31,11 +31,8 @@ public class ControlGame {
 			public void itemStateChanged(ItemEvent itemE) {
 				if(itemE.getStateChange() == ItemEvent.SELECTED) {
 					gMod.checkThatBetIsValid(gWind.getBet());
-						
-					
 				}
 			}
-			
 		};
 		gWind.getBetAmt().addItemListener(eListen);
 	}
@@ -56,7 +53,7 @@ public class ControlGame {
 	public void roll () {
 		
 		if (gMod.getValidBool() == true) {
-			System.out.println(gMod.getValidBool());
+			
 			gMod.playerRolls();
 		
 		
@@ -74,8 +71,8 @@ public class ControlGame {
 			gWind.setP2Count(gMod.getPlayer2GamesWon());
 		}
 		else if (gMod.getValidBool()==false) {
+			//Number 2, not fixed
 			JOptionPane.showMessageDialog(new JFrame(), "Please select a valid betting amount");
-			System.out.println(gMod.getValidBool());
 		}
 	}
 }

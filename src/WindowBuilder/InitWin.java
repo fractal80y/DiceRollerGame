@@ -29,10 +29,6 @@ public class InitWin {
 		initialize();
 		jf.setVisible(true);
 	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		jf = new JFrame();
 		jf.setTitle("Initialsation Window");

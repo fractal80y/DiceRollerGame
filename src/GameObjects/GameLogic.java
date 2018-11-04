@@ -1,15 +1,11 @@
 package GameObjects;
 
 import javax.swing.*;
-import javax.swing.JOptionPane;
 
 public class GameLogic {
-	
 	public GameLogic() {
 		
 	}
-	
-	
 	//Lambda Block Expression, using Interface to bind function to variable
 	interface CoinFlip{
 		public boolean flipIt();
@@ -22,15 +18,17 @@ public class GameLogic {
 		  
 		  return  (x == 1) ? true : false;   
 	};
-	
+	// Add NEW GAME FUNCTIONALITY IN THIS METHOD with the JDIALOG MULTIPLE OPTIONS THING WE USED
 	public void gameOver(int player1Wallet, int player2Wallet) {
 		
 		if(player1Wallet <=0) {
+			//Findt this one
 			JOptionPane.showMessageDialog(new JFrame(), "Player 2 Wins.");
 			System.exit(0);
 		}
 			
 		else if(player2Wallet <= 0) {
+			//Find this one
 			JOptionPane.showMessageDialog(new JFrame(), "Player 1 Wins.");
 			System.exit(0);
 		}	
@@ -48,12 +46,17 @@ public class GameLogic {
 			
 			
 				if(toss.flipIt() == getHeadOrTail()) { 
-					comp=true; JOptionPane.showMessageDialog(new JFrame(), "player 1 wins that toss.");
+					
+					comp=true; 
+					//find this one
+					JOptionPane.showMessageDialog(new JFrame(), "player 1 wins that toss.");
 				
 				}
 		
 				else {
-					comp = false; JOptionPane.showMessageDialog(new JFrame(), "player 2 wins that toss.");
+					comp = false; 
+					//fseesf
+					JOptionPane.showMessageDialog(new JFrame(), "player 2 wins that toss.");
 				}
 		}
 		return comp;
@@ -61,17 +64,16 @@ public class GameLogic {
 	
 	public boolean getHeadOrTail() {
 		boolean choice = true;
-		Object[] options = {"Heads",
-        "Tails"};
+		Object[] options = {"Heads","Tails"};
 		int coin = JOptionPane.showOptionDialog(new JFrame(),
-					"Player 1 Call Heads or Tails  "+ "","A silly Question?",
-					JOptionPane.YES_NO_CANCEL_OPTION,
-					JOptionPane.QUESTION_MESSAGE,
-					null,options, options[1]);
+				"Player 1 Call Heads or Tails  "+ "","A silly Question?",
+				JOptionPane.YES_NO_CANCEL_OPTION,
+				JOptionPane.QUESTION_MESSAGE,
+				null,options, options[1]);
 		
 		if(coin == 0) choice = true;
 		else choice = false;
 
-return choice;
+		return choice;
 	}	
 }

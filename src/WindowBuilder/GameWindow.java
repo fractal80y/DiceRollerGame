@@ -35,20 +35,12 @@ public class GameWindow {
 	private JLabel p2Count;
 	
 	private JLabel roundCounter;
-	
 
-	
-
-	/**
-	 * Create the application.
-	 */
 	public GameWindow(String name1,String name2, int wallet,int gameNumber) {
 		initialize(name1,name2,wallet);
 		this.setRoundCounter(1, gameNumber);
 		jf.setVisible(true);
 	}
-
-	
 	private void initialize(String name1, String name2, int wallet) {
 		jf = new JFrame();
 		jf.setTitle("Game Window");
@@ -68,7 +60,7 @@ public class GameWindow {
 		Component horizontalStrut = Box.createHorizontalStrut(20);
 		playerPan.add(horizontalStrut);
 		
-		JLabel p2Label = new JLabel(name2+"s Wallet");
+		JLabel p2Label = new JLabel(name2+"'s Wallet");
 		playerPan.add(p2Label);
 		
 		p2Wallet = new JLabel(String.valueOf(wallet));

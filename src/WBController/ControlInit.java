@@ -37,6 +37,7 @@ public class ControlInit {
 			initWin.getJF().dispose();
 		}
 		else if (initWin.getN1().length()>15||initWin.getN2().length()>15) {
+			// Number 3, not fixed method something like invalidnamedialog
 			JOptionPane.showMessageDialog(new JFrame(), "Player names can only be max 15 characters");
 		}
 	}

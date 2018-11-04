@@ -15,7 +15,7 @@ public class GameModel {
 	public GameModel (String name1, String name2, int rollNumber, int gameNumber, int wallet) {
 		this.game = new Game ( name1,  name2,  rollNumber,  gameNumber,  wallet);
 		this.betValue = 0;
-		this.betValid = false;
+		this.betValid = true;
 	}
 	public void playerRolls() {
 		game.playerRoll();
@@ -28,6 +28,7 @@ public class GameModel {
 		try {
 		if (Integer.parseInt(bet) > getP1Wallet() || Integer.parseInt(bet) > getP2Wallet()) {
 			this.betValid = false;
+			// Number 1, not fixed
 			JOptionPane.showMessageDialog(new JFrame(), "Please select a valid betting amount");
 		}
 		else if (Integer.parseInt(bet) <= getP1Wallet() && Integer.parseInt(bet) <= getP2Wallet()) {
